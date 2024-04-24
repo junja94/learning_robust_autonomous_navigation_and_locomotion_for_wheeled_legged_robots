@@ -46,20 +46,15 @@ author: Joonho Lee
 
 <h2 id="abs">ABSTRACT</h2>
 <p class="paper-paragraph">
-    Autonomous wheeled-legged robots have the potential to transform logistics systems, improving 
-    operational efficiency and adaptability in urban environments. Navigating urban environments,
-    however, poses unique challenges for robots, necessitating innovative solutions for locomotion and
-    navigation. These challenges include the need for adaptive locomotion across varied terrains and
-    the ability to navigate efficiently around complex dynamic obstacles. This work introduces a fully
-    integrated system comprising adaptive locomotion control, mobility-aware local navigation
-    planning, and large-scale path planning within the city. Using model-free reinforcement learning
-    (RL) techniques and privileged learning, we develop a versatile locomotion controller. This
-    controller achieves efficient and robust locomotion over various rough terrains, facilitated by
-    smooth transitions between walking and driving modes. It is tightly integrated with a learned
-    navigation controller through a hierarchical RL framework, enabling effective navigation through
-    challenging terrain and various obstacles at high speed. Our controllers are integrated into a largescale urban navigation system and validated by autonomous, kilometer-scale navigation missions
-    conducted in Zurich, Switzerland, and Seville, Spain. These missions demonstrate the system’s
-    robustness and adaptability, underscoring the importance of integrated control systems in
+    Autonomous wheeled-legged robots have the potential to transform logistics systems, improving  operational efficiency and adaptability in urban environments.
+    Navigating urban environments,however, poses unique challenges for robots, necessitating innovative solutions for locomotion and navigation. 
+    These challenges include the need for adaptive locomotion across varied terrains and the ability to navigate efficiently around complex dynamic obstacles. 
+    This work introduces a fully integrated system comprising adaptive locomotion control, mobility-aware local navigation planning, and large-scale path planning within the city.
+    Using model-free reinforcement learning (RL) techniques and privileged learning, we develop a versatile locomotion controller. 
+    This controller achieves efficient and robust locomotion over various rough terrains, facilitated by smooth transitions between walking and driving modes.
+    It is tightly integrated with a learned navigation controller through a hierarchical RL framework, enabling effective navigation through challenging terrain and various obstacles at high speed.
+    Our controllers are integrated into a largescale urban navigation system and validated by autonomous, kilometer-scale navigation missions conducted in Zurich, Switzerland, and Seville, Spain.
+    These missions demonstrate the system’s robustness and adaptability, underscoring the importance of integrated control systems in
     achieving seamless navigation in complex environments. Our findings support the feasibility of
     wheeled-legged robots and hierarchical RL for autonomous navigation, with implications for lastmile delivery and beyond.
 </p>
@@ -67,7 +62,7 @@ author: Joonho Lee
 
 <hr class="thick">
 <figcaption>
-    Summary video
+    Summary of main contributions
 </figcaption>
 
 <div class="videoWrapper" id="movie1">
@@ -81,19 +76,25 @@ author: Joonho Lee
     <hr class="thick2">
     <h2 id="featured">Highlights</h2>
     <div style=" padding-bottom: 1rem;">
-            <em><h3>Zero-shot generalization to unknown environments</h3></em>
+            <em><h3>Kilometer-scale Autonomous Deployments</h3></em>
         </div>
 
     <figcaption>
-        Figure 1. A number of specific deployments
-        <span style="font-size: 1rem; color:#595959">(paper Figure 2)</span>
+        Large scale autonomous missions in Glattpark, Zurich, Switzerland
+        <span style="font-size: 1rem; color:#595959">(paper Figure 3)</span>
     </figcaption>
     <figure class="figure" id="fig2">
-        <img alt="figure2" src="assets/img/figure2.png">
+        <img alt="figure2" src="assets/img/glatt_park_A.png">
     </figure>
 
 
     <p class="paper-paragraph">
+       <b>(A)</b> Our city navigation workflow begins with offline preparation, involving scanning the test area using a handheld laser scanner and constructing a navigation graph.
+       <b>(B)</b> The robot autonomously navigated the urban environment to reach 13 predetermined goal points, selected in an arbitrary order. 
+       <b>(i and ii)</b> Path planning within the city was facilitated by the pre-generated navigation graph.
+       <b>(iii)</b>Moving speed and mechanical cost of transport compared to a normal legged robot (ANYmal-C).
+</p>
+    <!-- <p class="paper-paragraph">
         The presented controller has been deployed in diverse natural environments.
         These include steep mountain trails, creeks with running water, mud, thick vegetation, loose rubble,
         snow-covered
@@ -123,17 +124,17 @@ author: Joonho Lee
         The presented controller drove two ANYmal-B robots in four missions of 60 minutes. The
         controller exhibited a zero failure rate throughout the competition. A steep staircase that was traversed
         by one of the robots during the competition is shown in <a href="#fig2">Fig. 1</a>G.
-    </p>
+    </p> -->
     
     <hr class="thick">
     
     <div style=" padding-bottom: 1rem;">
-    <em><h3>Foot-trapping reflex</h3></em>
+    <em><h3>Local Navigation</h3></em>
     </div>
 
     <figcaption>
-        Movie 1. Step experiment
-        <span style="font-size: 1rem; color:#595959">(paper Movie S3)</span>
+        Obstacle negotiation with active exploration
+        <span style="font-size: 1rem; color:#595959">(paper Movie S2)</span>
     </figcaption>
     <div class="videoWrapper" id="movieS3">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/tPixnjLbTvE" frameborder="0"
@@ -141,23 +142,28 @@ author: Joonho Lee
                 allowfullscreen></iframe>
     </div>
 
+
+    <figure class="figure" id="fig2">
+        <img alt="figure3" src="assets/img/obstacles.png">
+    </figure>
+
     <p class="paper-paragraph">
-        The learned controller manifests a foot-trapping reflex, as shown in <a href="#movieS3">Movie 1</a>.
-        The policy identifies the trapping of the foot purely from proprioceptive observations and lifts the foot over
-        the obstacle.
-        Such reflexes were not specified in any way during training: they developed adaptively.
-        This distinguishes the presented approach from conventional controller design methods,
-        which explicitly build in such reflexes and orchestrate their execution by a higher-level state machine.
+        <b>(A)</b> Our robot navigates around blocked routes by actively exploring the area and finding
+        alternative paths.
+        <b>(B)</b> Safe traversal of a narrow space.
+        <b>(C)</b>Our robot exhibits two different ways to traverse the complex obstacle. 
+        <b>(C and D)</b> Our robot shows an asymmetric understanding of traversability, being able to traverse higher steps when going down.
+        <b>(E)</b> We ensure safety around humans by incorporating additional human detection and overriding height scan values.
     </p>
     
     <hr class="thick">
 
     <div style=" padding-bottom: 1rem;">
-    <em><h3>Robustness to Model-mismatch</h3></em>
+    <em><h3>Terrain-adaptive Hybrid Locomotion</h3></em>
     </div>
 
     <figcaption>
-        Movie 2. Payload experiment
+        Locomotion highlights
         <span style="font-size: 1rem; color:#595959">(paper Movie S4)</span>
     </figcaption>
     <div class="videoWrapper" id="movieS4">
@@ -167,15 +173,10 @@ author: Joonho Lee
     </div>
 
     <p class="paper-paragraph">
-        We tested the controllers in the presence of substantial model mismatch.
-        We attached a 10 kg payload.
-        This payload is 22.7 % of the total weight of the robot, and was never simulated during training.
-        As shown in <a href="#movieS4">Movie 2</a>, the presented controller can still traverse steps up to 13.4 cm
-        despite the model mismatch.
-        The baseline is incapable of traversing any steps under any command speed with the payload.
+       With model-free RL, we could develop a versatile locomotion controller that manifests adaptive gait transitions between walking and driving modes depending on the terrain.
     </p>
 
-    <hr class="thick">
+    <!-- <hr class="thick">
 
     <div style=" padding-bottom: 1rem;">
     <em><h3>Robustness to Foot Slippage</h3></em>
@@ -196,7 +197,7 @@ author: Joonho Lee
         The results are shown in <a href="#movieS5">Movie 3</a>.
         The baseline quickly loses balance, aggressively swings the legs, and falls. In contrast, the presented
         controller adapts to the slippery terrain and successfully locomotes in the commanded direction.
-    </p>
+    </p> -->
 
 </div>
 <p>
@@ -206,21 +207,19 @@ author: Joonho Lee
 <div id="acknowlege">
     <h2>Acknowledgment</h2>
     <p class="paper-paragraph">
-
-        <b>Author contributions</b>: J.L. formulated
-        the main idea of the training and control methods, implemented the controller, set up the
-        simulation, and trained control policies. J.L. performed the indoor experiments. J.H.
-        contributed in setting up the simulation. J.L. and L.W. performed outdoor experiments
-        together. J.L., J.H., L.W., M.H., and V.K. refined ideas, contributed in the experiment design,
-        and analyzed the data.
+        <b>Author contributions</b>: J.L. conceived the main idea for the approach and was responsible for the implementation and training of the controllers.
+        The high-level policy was trained by J.L., whereas M.B. developed the simulation environment for the low-level policy and also trained it. 
+        The navigation system and safety layer were collaboratively devised and implemented by J.L., M.B.,A.R., and L.W. 
+        Real-world experiments were planned and executed with contributions from A.R. and L.W.
+        Initial setup of the low-level controller was facilitated by T.M. All authors contributed to system integration and experimentation.
     </p>
     <p class="paper-paragraph">
-    <b>Funding</b>: The project was funded, in part, by the Intel
-        Network on Intelligent Systems, the Swiss National Science Foundation (SNF) through the
-        National Centre of Competence in Research Robotics, the European Research Council (ERC)
-        under the European Union’s Horizon 2020 research and innovation programme grant
-        agreement no 852044 and no 780883. The work has been conducted as part of ANYmal
-        Research, a community to advance legged robotics.
+        <b>Thanks to </b>: We appreciate T. Tuna for helping us integrate Open3D SLAM, J. Keller for the API integration, and G. Valsecchi for the hardware support.
+    </p>
+    <p class="paper-paragraph">
+    <b>Funding</b>: This work was supported by the Mobility Initiative grant funded through the ETH Zurich Foundation, European Union’s Horizon 2020 research and innovation program under grant
+     agreement numbers 101070405 and 101016970, Swiss National Science Foundation through the National Centre of Competence in Digital Fabrication (NCCR dfab),
+      European Union’s Horizon Europe Framework Programme under grant agreement numbers 852044 and 101070596, and Apple Inc.
         <!--        <b>Competing interests</b>: The authors declare that they have no competing-->
         <!--        interests.  <b>Data and materials availability</b>: All data needed to evaluate the conclusions in the-->
         <!--        paper are present in the paper or the Supplementary Materials. Other materials can be found at-->
