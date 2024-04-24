@@ -22,3 +22,5 @@ gem 'jekyll-seo-tag'
 
 # Dependabot security update
 gem "nokogiri", ">= 1.11.0.rc4"
+
+gem "webrick", "~> 1.8"

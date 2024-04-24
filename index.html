@@ -14,20 +14,21 @@ author: Joonho Lee
 
 
 <div class="paper-authors">
-    <a href="https://scholar.google.com/citations?user=6Htb7swAAAAJ&hl=en">Joonho Lee<sup>1,*</sup></a>, 
-    <a href="https://scholar.google.com/citations?user=Uam1ZB8AAAAJ&hl=en&oi=ao">Jemin Hwangbo<sup>1,2,†</sup></a>, 
-    <a href="https://scholar.google.com/citations?user=0otNjsQAAAAJ&hl=en&oi=ao">Lorenz Wellhausen<sup>1</sup></a>, 
-    <a href="http://vladlen.info/">Vladlen Koltun<sup>3</sup></a>,
+    <a href="https://scholar.google.com/citations?user=6Htb7swAAAAJ&hl=en">Joonho Lee<sup>1,2</sup></a>, 
+    <a href="https://scholar.google.com/citations?user=W7PnUfUAAAAJ&hl=en">Marko Bjelonic<sup>1,3</sup></a>, 
+    <a href="https://www.linkedin.com/in/alexander-reske">Alexander Reske<sup>1,3</sup></a>, 
+    <a href="https://scholar.google.com/citations?user=0otNjsQAAAAJ&hl=en&oi=ao">Lorenz Wellhausen<sup>1,3</sup></a>, 
+    <a href="https://scholar.google.com/citations?user=nOl83tYAAAAJ&hl=en">Takahiro Miki<sup>1</sup></a>,
     and <a href="https://scholar.google.ch/citations?user=DO3quJYAAAAJ&hl=en">Marco Hutter<sup>1</sup></a>
 </div>
 
 <div class="paper-affiliations">
-    <sup>1</sup> Robotic Systems Lab, ETH Zurich
-    <br><sup>2</sup> Robotics and Artificial Intelligence Lab, KAIST
-    <br><sup>3</sup> Intelligent Systems Lab, Intel
+    <sup>1</sup> Robotic Systems Lab, ETH Zurich, Zurich, Switzerland
+    <br><sup>2</sup> Neuromeka, Seoul, Korea
+    <br><sup>3</sup> Swiss-Mile Robotics AG, Zurich, Switzerland
     <br>
     <em>
-        <br><sup>†</sup> Substantial part of the work was carried out during his stay at 1
+        <br>Substantial part of the work was carried out during their stay at 1
         <br><sup>*</sup> Corresponding author: jolee@ethz.ch
     </em>
 </div>
@@ -46,17 +47,22 @@ author: Joonho Lee
 
 <h2 id="abs">ABSTRACT</h2>
 <p class="paper-paragraph">
-    Legged locomotion can extend the operational domain of robots to some of the most challenging environments
-    on Earth. However, conventional controllers for legged locomotion are based on elaborate state machines that
-    explicitly trigger the execution of motion primitives and reflexes. These designs have increased in complexity but
-    fallen short of the generality and robustness of animal locomotion. Here, we present a robust controller for blind
-    quadrupedal locomotion in challenging natural environments. Our approach incorporates proprioceptive feedback
-    in locomotion control and demonstrates zero-shot generalization from simulation to natural environments. The
-    controller is trained by reinforcement learning in simulation. The controller is driven by a neural network policy
-    that acts on a stream of proprioceptive signals. The controller retains its robustness under conditions that were
-    never encountered during training: deformable terrains such as mud and snow, dynamic footholds such as rubble,
-    and overground impediments such as thick vegetation and gushing water. The presented work indicates that
-    robust locomotion in natural environments can be achieved by training in simple domains.
+    Autonomous wheeled-legged robots have the potential to transform logistics systems, improving 
+    operational efficiency and adaptability in urban environments. Navigating urban environments,
+    however, poses unique challenges for robots, necessitating innovative solutions for locomotion and
+    navigation. These challenges include the need for adaptive locomotion across varied terrains and
+    the ability to navigate efficiently around complex dynamic obstacles. This work introduces a fully
+    integrated system comprising adaptive locomotion control, mobility-aware local navigation
+    planning, and large-scale path planning within the city. Using model-free reinforcement learning
+    (RL) techniques and privileged learning, we develop a versatile locomotion controller. This
+    controller achieves efficient and robust locomotion over various rough terrains, facilitated by
+    smooth transitions between walking and driving modes. It is tightly integrated with a learned
+    navigation controller through a hierarchical RL framework, enabling effective navigation through
+    challenging terrain and various obstacles at high speed. Our controllers are integrated into a largescale urban navigation system and validated by autonomous, kilometer-scale navigation missions
+    conducted in Zurich, Switzerland, and Seville, Spain. These missions demonstrate the system’s
+    robustness and adaptability, underscoring the importance of integrated control systems in
+    achieving seamless navigation in complex environments. Our findings support the feasibility of
+    wheeled-legged robots and hierarchical RL for autonomous navigation, with implications for lastmile delivery and beyond.
 </p>
 
 
